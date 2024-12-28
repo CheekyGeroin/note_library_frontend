@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
+import { login } from "../../services/authAPI";
 
 const LoginForm = () => {
   const [email, setEmail] = useState(" ");
@@ -28,6 +29,13 @@ const LoginForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const user = {
+      email,
+      password,
+    };
+
+    login(user);
 
     reset();
   };

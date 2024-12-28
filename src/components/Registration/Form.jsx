@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
+import { registration } from "../../services/authAPI";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState(" ");
@@ -38,13 +39,18 @@ const RegisterForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const confirmation = password === confirmPass;
-
-    if (!confirmation) {
+    if (password !== confirmPass) {
       toast.error("Passwords do not match!");
       setPassword(" ");
       setConfirmPass(" ");
     }
+    const newUser = {
+      username,
+      email,
+      password,
+    };
+
+    registration(newUser);
 
     reset();
   };
