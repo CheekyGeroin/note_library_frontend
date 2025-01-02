@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
-import { login } from "../../services/authAPI";
+import auth from "../../services/authAPI";
 
 const LoginForm = () => {
   const [email, setEmail] = useState(" ");
@@ -35,7 +35,7 @@ const LoginForm = () => {
       password,
     };
 
-    login(user);
+    auth.login(user);
 
     reset();
   };

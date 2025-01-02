@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
-import { getNotes } from "../../../services/notesAPI";
+import { useState } from "react";
+import notes from "../../../services/notesAPI";
+import Card from "../Card/Card";
 
 const List = () => {
   const [cards, setCards] = useState([]);
-  useEffect(() => {
-    setCards(getNotes());
-  }, []);
+  setCards(notes.getNotes());
   return (
     <ul>
-      {cards.map(() => {
-        return <li key={cards.id}></li>;
+      {cards.map(({ id, title, text }) => {
+        return (
+          <li key={id}>
+            <Card title={title} text={text} />
+          </li>
+        );
       })}
     </ul>
   );

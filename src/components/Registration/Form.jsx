@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
-import { registration } from "../../services/authAPI";
+import auth from "../../services/authAPI";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState(" ");
@@ -50,7 +50,7 @@ const RegisterForm = () => {
       password,
     };
 
-    registration(newUser);
+    auth.registration(newUser);
 
     reset();
   };
