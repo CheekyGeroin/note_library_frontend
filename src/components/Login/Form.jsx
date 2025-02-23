@@ -1,7 +1,7 @@
 import { useState } from "react";
-// import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
-import auth from "../../services/authAPI";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/authOperations";
 
 const LoginForm = () => {
   const [email, setEmail] = useState(" ");
@@ -26,6 +26,7 @@ const LoginForm = () => {
     setEmail(" ");
     setPassword(" ");
   };
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ const LoginForm = () => {
       password,
     };
 
-    auth.login(user);
+    dispatch(login(user));
 
     reset();
   };

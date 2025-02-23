@@ -1,10 +1,11 @@
+import AddBtn from "../components/AddBtn/AddBtn";
 import List from "../components/Notes/List/List";
 
 const NotesPage = () => {
   return (
     <div>
+      <AddBtn />
       <List />
-      <button>Add new note</button>
     </div>
   );
 };

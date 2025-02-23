@@ -1,16 +1,15 @@
-import { useState } from "react";
-import notes from "../../../services/notesAPI";
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
+import { selectNotes } from "../../../redux/notes/notesSelectors";
 
 const List = () => {
-  const [cards, setCards] = useState([]);
-  setCards(notes.getNotes());
+  const cards = useSelector(selectNotes);
   return (
     <ul>
       {cards.map(({ id, title, text }) => {
         return (
           <li key={id}>
-            <Card title={title} text={text} />
+            <Card id={id} title={title} text={text} />
           </li>
         );
       })}

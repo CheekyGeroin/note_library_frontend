@@ -64,9 +64,9 @@ export const updateNote = createAsyncThunk(
 
 export const deleteNote = createAsyncThunk(
   "notes/delete",
-  async (__, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const data = await notes.deleteNote();
+      const data = await notes.deleteNote(credentials.id);
 
       toast.success("Note was successfully deleted");
       return data;
