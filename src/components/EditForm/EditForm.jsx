@@ -1,10 +1,11 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
 import { updateNote } from "../../redux/notes/notesOperations";
 import { useModal } from "../../customHooks/useModal";
-const EditForm = (oldTitle, oldText) => {
+const EditForm = () => {
+  const { modal } = useModal();
+  const { oldTitle, oldText } = modal.props;
   const [title, setTitle] = useState(oldTitle);
   const [text, setText] = useState(oldText);
 
@@ -73,8 +74,3 @@ const EditForm = (oldTitle, oldText) => {
 };
 
 export default EditForm;
-
-EditForm.propTypes = {
-  oldTitle: PropTypes.string,
-  oldText: PropTypes.string,
-};

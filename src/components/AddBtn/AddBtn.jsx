@@ -1,5 +1,12 @@
+import { useModal } from "../../customHooks/useModal";
+
 const AddBtn = () => {
-  return <button type="button">Add new note</button>;
+  const { openModal } = useModal();
+  return (
+    <button type="button" onClick={() => openModal("add")}>
+      Add new note
+    </button>
+  );
 };
 
 export default AddBtn;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import SubmitBtn from "../SubmitButton/SubmitBtn";
-import auth from "../../services/authAPI";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/authOperations";
 

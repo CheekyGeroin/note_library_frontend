@@ -6,7 +6,7 @@ const ModalPortal = ({ children }) => {
     <div>
       <div>{children}</div>
     </div>,
-    document.querySelector("modal-root")
+    document.getElementById("modal-root")
   );
 };
 

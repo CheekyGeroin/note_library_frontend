@@ -4,9 +4,10 @@ import { selectNotes } from "../../../redux/notes/notesSelectors";
 
 const List = () => {
   const cards = useSelector(selectNotes);
+
   return (
     <ul>
-      {cards.map(({ id, title, text }) => {
+      {cards.notes.map(({ id, title, text }) => {
         return (
           <li key={id}>
             <Card id={id} title={title} text={text} />

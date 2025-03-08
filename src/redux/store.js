@@ -11,8 +11,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
-import authReducer from "./auth/authSlice";
-import notesReducer from "./notes/notesSlice";
+import { authReducer } from "./auth/authSlice";
+import { notesReducer } from "./notes/notesSlice";
 
 const authPersistConfig = {
   key: "auth",
